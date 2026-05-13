@@ -1,0 +1,698 @@
+/* ════════════════════════════════════════════════════════════
+   SIGAP INPUT PANEL — Dual-Tab Interaction Layer
+   Google Maps-inspired, modern, purposeful.
+   ════════════════════════════════════════════════════════════ */
+
+.sigap-input-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: visible;
+  box-shadow: 0 4px 24px -4px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+  margin-bottom: 32px;
+}
+
+/* ── Tab List ── */
+.sip-tab-list {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  padding: 0 4px;
+  gap: 0;
+  background: var(--bg-muted);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.sip-tab-trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 13px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+  flex: 1;
+  justify-content: center;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.sip-tab-trigger[data-state="active"] {
+  color: var(--text-main);
+  background: var(--bg-surface);
+  font-weight: 600;
+}
+
+.sip-tab-trigger:hover:not([data-state="active"]) {
+  color: var(--text-main);
+  background: rgba(0,0,0,0.03);
+}
+
+.sip-tab-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Framer Motion indicator lives in the trigger as absolute */
+.sip-tab-indicator {
+  position: absolute;
+  bottom: -1px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: var(--text-main);
+  border-radius: 2px 2px 0 0;
+}
+
+/* ── Tab Content ── */
+.sip-tab-content {
+  padding: 20px 20px 16px;
+  outline: none;
+}
+
+/* ══════════════════════════════
+   TAB 1 — TANYA SIGAP
+   ══════════════════════════════ */
+
+.sip-chat-form {
+  margin-bottom: 12px;
+}
+
+.sip-chat-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 10px 10px 10px 16px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.sip-chat-box:focus-within {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+  background: var(--bg-surface);
+}
+
+.sip-chat-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.9375rem;
+  color: var(--text-main);
+  resize: none;
+  line-height: 1.5;
+  min-height: 24px;
+  max-height: 160px;
+  outline: none;
+  font-family: inherit;
+}
+
+.sip-chat-input::placeholder {
+  color: var(--text-light);
+}
+
+.sip-send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--text-main);
+  color: white;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.sip-send-btn:hover:not(:disabled) {
+  opacity: 0.85;
+  transform: scale(1.04);
+}
+
+.sip-send-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Quick prompts */
+.sip-quick-prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.sip-prompt-chip {
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.sip-prompt-chip:hover {
+  border-color: var(--text-main);
+  color: var(--text-main);
+  background: var(--bg-muted);
+}
+
+/* Activity chips */
+.sip-activity-section {
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+}
+
+.sip-activity-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.sip-activity-label span {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.sip-activity-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sip-activity-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sip-activity-chip:hover {
+  border-color: var(--text-main);
+  color: var(--text-main);
+}
+
+.sip-activity-chip.active {
+  background: var(--text-main);
+  color: white;
+  border-color: var(--text-main);
+}
+
+/* ══════════════════════════════
+   TAB 2 — RENCANAKAN PERJALANAN
+   ══════════════════════════════ */
+
+.sip-plan-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Route input block — Google Maps style */
+.sip-route-block {
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 4px 0;
+  overflow: visible;
+}
+
+.sip-route-field {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 10px 12px;
+  position: relative;
+}
+
+.sip-route-field + .sip-route-field {
+  border-top: 1px solid var(--border-light);
+}
+
+.sip-route-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.sip-route-icon.origin {
+  background: #EFF6FF;
+  color: #2563EB;
+}
+
+.sip-route-icon.dest {
+  background: #FFF1F2;
+  color: #E11D48;
+}
+
+/* Override PlaceAutocomplete input inside route block */
+.sip-route-field .form-input {
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  font-size: 0.9375rem;
+  color: var(--text-main);
+  height: auto;
+  min-height: 0;
+  border-radius: 0;
+}
+
+.sip-route-field .form-input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Route connector dots */
+.sip-route-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 0 0 0 26px;
+}
+
+.sip-route-connector span {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  display: block;
+}
+
+/* Meta row — transport + time */
+.sip-meta-row {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+/* Custom transport dropdown */
+.sip-transport-select {
+  position: relative;
+  flex: 1;
+}
+
+.sip-transport-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sip-transport-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-surface);
+}
+
+.sip-chevron {
+  margin-left: auto;
+  color: var(--text-light);
+  transition: transform 0.2s;
+}
+
+.sip-chevron.open {
+  transform: rotate(180deg);
+}
+
+.sip-transport-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 4px;
+  z-index: 100;
+  box-shadow: 0 8px 24px -4px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+  transform-origin: top center;
+}
+
+.sip-transport-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.12s;
+  text-align: left;
+}
+
+.sip-transport-option:hover {
+  background: var(--bg-muted);
+  color: var(--text-main);
+}
+
+.sip-transport-option.active {
+  background: var(--bg-muted);
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+/* Datetime field */
+.sip-time-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  padding: 10px 12px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.15s;
+}
+
+.sip-time-field:focus-within {
+  border-color: var(--border-focus);
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+
+.sip-time-icon {
+  color: var(--text-light);
+  flex-shrink: 0;
+}
+
+.sip-time-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.sip-time-input::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+/* Notes field */
+.sip-notes-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.15s;
+}
+
+.sip-notes-field:focus-within {
+  border-color: var(--border-focus);
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+}
+
+.sip-notes-icon {
+  color: var(--text-light);
+  flex-shrink: 0;
+}
+
+.sip-notes-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.875rem;
+  color: var(--text-main);
+  font-family: inherit;
+  outline: none;
+}
+
+.sip-notes-input::placeholder {
+  color: var(--text-light);
+}
+
+/* Submit button */
+.sip-plan-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 20px;
+  background: var(--text-main);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  font-family: inherit;
+}
+
+.sip-plan-submit:hover:not(:disabled):not(.disabled) {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.sip-plan-submit.disabled,
+.sip-plan-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Spinner inside submit */
+.sip-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Autocomplete dropdown override for pac-container ── */
+.pac-container {
+  border-radius: 12px !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 8px 24px -4px rgba(0,0,0,0.12) !important;
+  font-family: 'Inter', sans-serif !important;
+  margin-top: 4px !important;
+  overflow: hidden;
+}
+
+.pac-item {
+  padding: 8px 14px !important;
+  font-size: 0.875rem !important;
+  color: var(--text-main) !important;
+  cursor: pointer;
+}
+
+.pac-item:hover, .pac-item-selected {
+  background: var(--bg-muted) !important;
+}
+
+.pac-item-query {
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  color: var(--text-main) !important;
+}
+
+.pac-icon {
+  display: none !important;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .sip-meta-row {
+    flex-direction: column;
+  }
+
+  .sip-tab-trigger {
+    padding: 11px 12px;
+    font-size: 0.8125rem;
+  }
+
+  .sip-quick-prompts {
+    flex-direction: column;
+  }
+
+  .sip-prompt-chip {
+    white-space: normal;
+    text-align: left;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════
+   PLACES API (NEW) — Custom Dropdown
+   Replaces Google's pac-container entirely.
+   ════════════════════════════════════════════════════════════ */
+
+/* Wrapper that positions the dropdown */
+.pac-new-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Clear button inside the input row */
+.pac-new-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--text-light);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: color 0.12s, background 0.12s;
+  flex-shrink: 0;
+}
+
+.pac-new-clear:hover {
+  color: var(--text-muted);
+  background: var(--bg-muted);
+}
+
+/* Override form-input inside wrapper — remove right padding conflict */
+.pac-new-wrapper .form-input {
+  padding-right: 28px;
+  width: 100%;
+}
+
+/* Dropdown container */
+.pac-new-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: -40px; /* offset to align with the icon column */
+  right: -12px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 200;
+  box-shadow:
+    0 8px 24px -4px rgba(0, 0, 0, 0.10),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Each suggestion row */
+.pac-new-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.1s;
+}
+
+.pac-new-item:hover,
+.pac-new-item:focus {
+  background: var(--bg-muted);
+  outline: none;
+}
+
+.pac-new-item + .pac-new-item {
+  border-top: 1px solid var(--border-light);
+}
+
+/* Pin icon column */
+.pac-new-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Text column */
+.pac-new-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.pac-new-main {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pac-new-secondary {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Loading state */
+.pac-new-loading {
+  padding: 10px 14px;
+  font-size: 0.8125rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+/* Suppress the old Google pac-container entirely (safety net) */
+.pac-container {
+  display: none !important;
+}

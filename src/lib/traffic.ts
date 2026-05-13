@@ -93,11 +93,15 @@ export async function getTrafficConditions(
 
   // We need origin coordinates and destination to do a route calculation
   if (typeof lat !== "number" || typeof lng !== "number" || !destination) {
+    console.log("🚦 Traffic: Missing inputs", { lat, lng, destination });
     return fallback;
   }
 
+  console.log(`🚦 Traffic: Requesting route for ${areaLabel} -> ${destination} (${mode})`);
+
   const apiKey = process.env.NEXT_PUBLIC_GCP_API_KEY || process.env.GCP_API_KEY;
   if (!apiKey) {
+    console.warn("🚦 Traffic: No GCP_API_KEY found in environment!");
     return {
       ...fallback,
       summary: `Simulasi: Rute menuju ${destination} diprakirakan lancar dengan mode transportasi ${mode}. (GCP Routes API belum terkonfigurasi).`,
@@ -121,6 +125,7 @@ export async function getTrafficConditions(
         "X-Goog-Api-Key": apiKey,
         // Request polyline + traffic interval data for frontend rendering
         "X-Goog-FieldMask": "routes.duration,routes.distanceMeters,routes.staticDuration,routes.polyline.encodedPolyline,routes.travelAdvisory.speedReadingIntervals",
+        "Referer": "http://localhost:3000/",
       },
       body: JSON.stringify({
         origin: {
@@ -140,6 +145,8 @@ export async function getTrafficConditions(
     });
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`🚦 Traffic: Routes API Error [${response.status}]`, errorText);
       throw new Error(`Routes API failed with status ${response.status}`);
     }
 
@@ -147,8 +154,15 @@ export async function getTrafficConditions(
     const route = data.routes?.[0];
 
     if (!route) {
+      console.warn("🚦 Traffic: Google returned 0 routes for this path.");
       return fallback;
     }
+
+    console.log("🚦 Traffic: Route found!", { 
+      distance: route.distanceMeters, 
+      duration: route.duration,
+      hasPolyline: !!route.polyline?.encodedPolyline 
+    });
 
     const durationMin = parseDurationToMinutes(route.duration);
     const staticDurationMin = parseDurationToMinutes(route.staticDuration) ?? durationMin;

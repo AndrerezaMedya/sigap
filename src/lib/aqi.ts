@@ -68,7 +68,10 @@ export async function getAirQuality(
   try {
     const response = await fetch(`${AQI_API_URL}?key=${apiKey}`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { 
+        "Content-Type": "application/json",
+        "Referer": "http://localhost:3000/"
+      },
       body: JSON.stringify({
         location: { latitude: lat, longitude: lng },
         extraComputations: [

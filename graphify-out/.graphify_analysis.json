@@ -1,0 +1,349 @@
+{
+  "communities": {
+    "0": [
+      "juaravibecoding_test_api_runtests",
+      "lib_aqi_aqicontext",
+      "lib_aqi_createfallbackaqi",
+      "lib_aqi_getairquality",
+      "lib_aqi_googleaqiresponse",
+      "lib_bmkg_getbmkgweather",
+      "lib_cache_cacheitem",
+      "lib_cache_globalcache",
+      "lib_context_buildenvironmentalcontext",
+      "lib_flood_floodcontext",
+      "lib_flood_floodmeta",
+      "lib_flood_floodreport",
+      "lib_flood_getfloodalerts",
+      "lib_stormglass_createfallbackwind",
+      "lib_stormglass_getstormglasswind",
+      "lib_stormglass_normalizevisibilitykm",
+      "lib_stormglass_pickstormglassvalue",
+      "lib_stormglass_stormglasshourvalue",
+      "lib_stormglass_stormglassresponse",
+      "lib_stormglass_windcontext",
+      "lib_types_environmentalcontext",
+      "lib_types_sourcemeta",
+      "lib_visualcrossing_getmicroclimate",
+      "lib_visualcrossing_microclimatecontext",
+      "lib_visualcrossing_visualcrossingresponse",
+      "src_lib_aqi_ts",
+      "src_lib_cache_ts",
+      "src_lib_context_ts",
+      "src_lib_flood_ts",
+      "src_lib_stormglass_ts",
+      "src_lib_visualcrossing_ts",
+      "test_api_ts"
+    ],
+    "1": [
+      "app_page_default_aurora",
+      "app_page_getnowforinput",
+      "app_page_risk_colors",
+      "app_page_risk_style",
+      "components_particlesbackground_buildparticleoptions",
+      "components_particlesbackground_risk_palettes",
+      "components_sigapinputpanel_quick_prompts",
+      "components_sigapinputpanel_transport_icons",
+      "lib_options_activity_options",
+      "lib_options_default_demo_location",
+      "lib_options_transport_options",
+      "lib_types_activitytype",
+      "lib_types_recommendationrequest",
+      "lib_types_recommendationresponse",
+      "lib_types_recommendationtimelineitem",
+      "lib_types_risklevel",
+      "lib_types_transportmode",
+      "lib_types_usercontext",
+      "lib_types_userprofile",
+      "recommendation_route_activities",
+      "recommendation_route_isactivity",
+      "recommendation_route_istransportmode",
+      "recommendation_route_normalizeusercontext",
+      "recommendation_route_post",
+      "src_app_api_recommendation_route_ts",
+      "src_app_page_tsx",
+      "src_components_particlesbackground_tsx",
+      "src_components_personamodal_tsx",
+      "src_components_sigapinputpanel_tsx",
+      "src_lib_options_ts",
+      "src_lib_types_ts"
+    ],
+    "2": [
+      "lib_bmkg_bmkgforecastitem",
+      "lib_bmkg_bmkgresponse",
+      "lib_bmkg_buildlocationlabel",
+      "lib_bmkg_flattenforecast",
+      "lib_bmkg_normalizebmkgresponse",
+      "lib_bmkg_tonumber",
+      "lib_fallback_createfallbackenvironmentalcontext",
+      "lib_fallback_createfallbackweather",
+      "lib_fallback_createsourcemeta",
+      "lib_fallback_nowiso",
+      "lib_types_decisionrecommendation",
+      "lib_types_weathercontext",
+      "lib_types_weatherpoint",
+      "src_lib_bmkg_ts",
+      "src_lib_fallback_ts"
+    ],
+    "3": [
+      "app_page_home",
+      "components_aithinkingloader_step",
+      "components_aithinkingloader_steps",
+      "components_routesummarypill_congestion_label",
+      "components_routesummarypill_congestion_tint",
+      "components_routesummarypill_pillshell",
+      "components_routesummarypill_trafficshape",
+      "hooks_usecountup_easeoutcubic",
+      "hooks_usecountup_options",
+      "lib_types_trafficcongestionlevel",
+      "src_components_aithinkingloader_tsx",
+      "src_components_routesummarypill_tsx",
+      "src_lib_hooks_usecountup_ts",
+      "src_lib_hooks_usereducedmotion_ts",
+      "src_lib_hooks_usestreamingtext_ts"
+    ],
+    "4": [
+      "lib_fallback_createfallbackrecommendation",
+      "lib_gemini_buildprompt",
+      "lib_gemini_extractjson",
+      "lib_gemini_geminiresponse",
+      "lib_gemini_generategeminirecommendation",
+      "lib_gemini_isactivitytype",
+      "lib_gemini_isrisklevel",
+      "lib_gemini_normalizerecommendation",
+      "lib_gemini_serializecontextforgemini",
+      "lib_gemini_transport_label",
+      "lib_gemini_tripcontext",
+      "src_lib_gemini_ts"
+    ],
+    "5": [
+      "components_docmodal_definitionlist",
+      "components_docmodal_doccallout",
+      "components_docmodal_docchild",
+      "components_docmodal_doccodeblock",
+      "components_docmodal_doccontent",
+      "components_docmodal_docmodalprops",
+      "components_docmodal_docsection",
+      "components_docmodal_endpointtable",
+      "components_docmodal_getdefaulttab",
+      "components_docmodal_issectionactive",
+      "src_components_docmodal_tsx"
+    ],
+    "6": [
+      "components_datetimepicker_formattrigger",
+      "components_datetimepicker_id_day_headers",
+      "components_datetimepicker_id_day_names_short",
+      "components_datetimepicker_id_months",
+      "components_datetimepicker_id_months_short",
+      "components_datetimepicker_issameday",
+      "components_datetimepicker_pad",
+      "components_datetimepicker_parsevalue",
+      "components_datetimepicker_timestepper",
+      "components_datetimepicker_tolocalstring",
+      "src_components_datetimepicker_tsx"
+    ],
+    "7": [
+      "components_groundtruthsheet_buildattribution",
+      "components_groundtruthsheet_floodstatusshort",
+      "components_groundtruthsheet_formatgranulararea",
+      "components_groundtruthsheet_formatnumber",
+      "components_groundtruthsheet_formatreportcount",
+      "components_groundtruthsheet_formattimestampwib",
+      "components_groundtruthsheet_getfreshnessstate",
+      "components_groundtruthsheet_groundtruthcard",
+      "components_intelligencemap_freshnessstate",
+      "src_components_groundtruthsheet_tsx"
+    ],
+    "8": [
+      "components_activitycomparisonchart_activity_icons",
+      "components_activitycomparisonchart_activity_labels",
+      "components_activitycomparisonchart_activity_order",
+      "components_activitycomparisonchart_formatsnapshottime",
+      "components_activitycomparisonchart_gettone",
+      "components_activitycomparisonchart_tier",
+      "components_activitycomparisonchart_tonespec",
+      "lib_types_activitycomparisonitem",
+      "src_components_activitycomparisonchart_tsx"
+    ],
+    "9": [
+      "components_intelligencemap_computefreshness",
+      "components_intelligencemap_formatwibtime",
+      "components_intelligencemap_intelligencemapprops",
+      "components_intelligencemap_maplegend",
+      "components_intelligencemap_minimalistmapstyle",
+      "components_intelligencemap_routelayer",
+      "components_intelligencemap_speed_color",
+      "lib_types_speedreadinginterval",
+      "src_components_intelligencemap_tsx"
+    ],
+    "10": [
+      "lib_traffic_createfallbacktraffic",
+      "lib_traffic_getcongestionlevel",
+      "lib_traffic_getgoogleroutingmode",
+      "lib_traffic_gettrafficconditions",
+      "lib_traffic_googleroutesresponse",
+      "lib_traffic_parsedurationtominutes",
+      "lib_traffic_trafficcontext",
+      "src_lib_traffic_ts"
+    ],
+    "11": [
+      "lib_cache_lrucache",
+      "lib_cache_lrucache_clear",
+      "lib_cache_lrucache_constructor",
+      "lib_cache_lrucache_delete",
+      "lib_cache_lrucache_get",
+      "lib_cache_lrucache_set"
+    ],
+    "12": [
+      "app_layout_metadata",
+      "app_layout_rootlayout",
+      "app_layout_viewport",
+      "src_app_layout_tsx"
+    ],
+    "13": [
+      "components_placeautocomplete_suggestion",
+      "components_placeautocomplete_usedebounce",
+      "src_components_placeautocomplete_tsx"
+    ],
+    "14": [
+      "eslint_config_mjs"
+    ],
+    "15": [
+      "next_env_d_ts"
+    ],
+    "16": [
+      "next_config_ts"
+    ]
+  },
+  "cohesion": {
+    "0": 0.13,
+    "1": 0.13,
+    "2": 0.21,
+    "3": 0.15,
+    "4": 0.26,
+    "5": 0.18,
+    "6": 0.22,
+    "7": 0.24,
+    "8": 0.22,
+    "9": 0.28,
+    "10": 0.39,
+    "11": 0.53,
+    "12": 0.5,
+    "13": 0.67,
+    "14": 1.0,
+    "15": 1.0,
+    "16": 1.0
+  },
+  "gods": [
+    {
+      "id": "lib_types_environmentalcontext",
+      "label": "EnvironmentalContext",
+      "degree": 12
+    },
+    {
+      "id": "lib_context_buildenvironmentalcontext",
+      "label": "buildEnvironmentalContext()",
+      "degree": 11
+    },
+    {
+      "id": "lib_gemini_generategeminirecommendation",
+      "label": "generateGeminiRecommendation()",
+      "degree": 9
+    },
+    {
+      "id": "lib_types_transportmode",
+      "label": "TransportMode",
+      "degree": 8
+    },
+    {
+      "id": "lib_bmkg_getbmkgweather",
+      "label": "getBmkgWeather()",
+      "degree": 7
+    },
+    {
+      "id": "lib_cache_globalcache",
+      "label": "globalCache",
+      "degree": 7
+    },
+    {
+      "id": "lib_traffic_gettrafficconditions",
+      "label": "getTrafficConditions()",
+      "degree": 7
+    },
+    {
+      "id": "lib_types_activitytype",
+      "label": "ActivityType",
+      "degree": 7
+    },
+    {
+      "id": "juaravibecoding_test_api_runtests",
+      "label": "runTests()",
+      "degree": 6
+    },
+    {
+      "id": "lib_cache_lrucache",
+      "label": "LRUCache",
+      "degree": 6
+    }
+  ],
+  "surprises": [
+    {
+      "source": "runTests()",
+      "target": "generateGeminiRecommendation()",
+      "source_files": [
+        "test-api.ts",
+        "src/lib/gemini.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "runTests()",
+      "target": "getBmkgWeather()",
+      "source_files": [
+        "test-api.ts",
+        "src/lib/bmkg.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "runTests()",
+      "target": "getFloodAlerts()",
+      "source_files": [
+        "test-api.ts",
+        "src/lib/flood.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "runTests()",
+      "target": "getMicroclimate()",
+      "source_files": [
+        "test-api.ts",
+        "src/lib/visualcrossing.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    },
+    {
+      "source": "runTests()",
+      "target": "buildEnvironmentalContext()",
+      "source_files": [
+        "test-api.ts",
+        "src/lib/context.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

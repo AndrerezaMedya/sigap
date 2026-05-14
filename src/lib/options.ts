@@ -47,7 +47,7 @@ export const TRANSPORT_OPTIONS: Array<{ value: TransportMode; label: string }> =
   ];
 
 export const DEFAULT_DEMO_LOCATION = {
-  label: "Bandung - Gedung Sate",
+  label: "Mendeteksi lokasi...",
   lat: -6.9025,
   lng: 107.6188,
   adm4Code: "32.73.14.1002", // Bandung Wetan - Citarum

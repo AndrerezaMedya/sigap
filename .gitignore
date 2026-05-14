@@ -7,3 +7,10 @@ dist
 *.log
 .vercel
 .DS_Store
+tsconfig.tsbuildinfo
+
+# Graphify knowledge graph cache (auto-generated, no need to track)
+graphify-out/cache/
+graphify-out/graph.html
+graphify-out/graph.json
+src/graphify-out/

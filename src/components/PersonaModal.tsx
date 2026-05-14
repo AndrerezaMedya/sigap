@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Shield, BrainCircuit, CheckCircle2, ArrowLeft } from "lucide-react";
+import { Shield, BrainCircuit, CheckCircle2, ArrowLeft, X } from "lucide-react";
 import type { UserProfile, TransportMode } from "@/lib/types";
 
 interface PersonaModalProps {
   onComplete: (profile: UserProfile) => void;
+  onCancel?: () => void;
 }
 
-export default function PersonaModal({ onComplete }: PersonaModalProps) {
+export default function PersonaModal({ onComplete, onCancel }: PersonaModalProps) {
   const [step, setStep] = useState(1);
   const [profile, setProfile] = useState<Partial<UserProfile>>({
     occupation: undefined,
@@ -93,13 +94,28 @@ export default function PersonaModal({ onComplete }: PersonaModalProps) {
                 <h2 style={{ 
                   fontSize: "1.5rem", fontWeight: 600, color: "#0F172A",
                   display: "flex", alignItems: "center", gap: "12px",
-                  margin: 0, letterSpacing: "-0.02em"
+                  margin: 0, letterSpacing: "-0.02em", flex: 1
                 }}>
                   <div style={{ padding: "8px", backgroundColor: "#F1F5F9", borderRadius: "12px", display: "flex" }}>
                     <BrainCircuit size={20} color="#334155" strokeWidth={2} />
                   </div>
                   Personalisasi
                 </h2>
+                {onCancel && (
+                  <button
+                    onClick={onCancel}
+                    className="persona-back-btn"
+                    style={{
+                      background: "transparent", border: "none", cursor: "pointer",
+                      padding: "8px", borderRadius: "12px", display: "flex",
+                      alignItems: "center", justifyContent: "center", color: "#94A3B8",
+                      marginRight: "-8px"
+                    }}
+                    aria-label="Batal"
+                  >
+                    <X size={20} strokeWidth={2} />
+                  </button>
+                )}
               </div>
               <p style={{ fontSize: "0.9375rem", color: "#64748B", marginTop: "12px", lineHeight: 1.6, marginBottom: 0 }}>
                 Bantu AI kami memahami profil mobilitas Anda untuk rekomendasi yang lebih tajam.
@@ -305,17 +321,22 @@ export default function PersonaModal({ onComplete }: PersonaModalProps) {
             animate={{ opacity: 1, scale: 1 }}
             style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", color: "#FAFAFA" }}
           >
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+            <div
               style={{
                 marginBottom: "32px", padding: "16px", backgroundColor: "rgba(255, 255, 255, 0.1)",
                 borderRadius: "24px", backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)",
-                border: "1px solid rgba(255, 255, 255, 0.2)", boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
+                border: "1px solid rgba(255, 255, 255, 0.2)", boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
+                display: "flex", alignItems: "center", justifyContent: "center"
               }}
             >
-              <BrainCircuit size={48} color="#FAFAFA" strokeWidth={1.5} />
-            </motion.div>
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+                style={{ display: "flex" }}
+              >
+                <BrainCircuit size={48} color="#FAFAFA" strokeWidth={1.5} />
+              </motion.div>
+            </div>
             <h3 style={{ fontSize: "1.5rem", fontWeight: 500, letterSpacing: "-0.02em", marginBottom: "12px", margin: 0 }}>
               Sinkronisasi AI...
             </h3>

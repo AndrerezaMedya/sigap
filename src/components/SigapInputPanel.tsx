@@ -176,7 +176,7 @@ export default function SigapInputPanel({
                   <textarea
                     ref={textareaRef}
                     className="sip-chat-input"
-                    placeholder="Tanya SIGAP apa saja... 'Aman gak naik motor sekarang?' atau 'Kapan waktu terbaik keluar rumah?'"
+                    placeholder="Tanya SIGAP terkait rencanamu"
                     value={userQuestion}
                     onChange={(e) => setUserQuestion(e.target.value)}
                     onKeyDown={handleKeyDown}
@@ -233,13 +233,14 @@ export default function SigapInputPanel({
                       <MapPin size={14} />
                     </div>
                     <PlaceAutocomplete
+                      key={locationName || "detecting"}
                       value={locationName}
                       onChange={(val, newLat, newLng) => {
                         setLocationName(val);
                         if (newLat !== undefined) setLat(newLat);
                         if (newLng !== undefined) setLng(newLng);
                       }}
-                      placeholder="Titik awal (otomatis dari GPS)"
+                      placeholder={locationName ? locationName : "Mendeteksi lokasi GPS..."}
                       id="sip-origin"
                       userLat={lat}
                       userLng={lng}

@@ -115,7 +115,7 @@ function getNowForInput() {
 
 export default function Home() {
   /* Form state */
-  const [locationName, setLocationName] = useState(DEFAULT_DEMO_LOCATION.label);
+  const [locationName, setLocationName] = useState("");
   const [adm4Code] = useState(DEFAULT_DEMO_LOCATION.adm4Code);
   const [lat, setLat] = useState<number | undefined>(DEFAULT_DEMO_LOCATION.lat);
   const [lng, setLng] = useState<number | undefined>(DEFAULT_DEMO_LOCATION.lng);
@@ -196,20 +196,23 @@ export default function Home() {
                 { headers: { "Accept-Language": "id" } }
               );
               const geoData = await geoResponse.json();
-              const cityName = geoData.address?.city || geoData.address?.town || geoData.address?.village || DEFAULT_DEMO_LOCATION.label;
+              const cityName = geoData.address?.city || geoData.address?.town || geoData.address?.village || "Lokasi Anda";
               setLocationName(cityName);
               setGeoDetected(true);
             } catch (error) {
               console.log("Geolocation reverse geocoding failed, using default", error);
+              setLocationName("Lokasi Anda");
               setGeoDetected(true);
             }
           },
           (error) => {
             console.log("Geolocation permission denied or unavailable", error);
+            setLocationName("Lokasi Tidak Diketahui");
             setGeoDetected(true);
           }
         );
       } else {
+        setLocationName("Lokasi Tidak Diketahui");
         setGeoDetected(true);
       }
 
@@ -291,6 +294,7 @@ export default function Home() {
                 setHasFetchedInitial(true);
                 setTimeout(() => handleSubmit(), 100);
               }}
+              onCancel={userProfile ? () => setShowPersonaModal(false) : undefined}
             />
           )}
         </AnimatePresence>
@@ -304,46 +308,28 @@ export default function Home() {
           context={result?.environmentalContext ?? null}
         />
 
-        <header className="header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <header className="header">
           <div className="logo">
             <Navigation className="text-blue-600" />
             SIGAP
           </div>
-          <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+          <div className="header-divider" />
+          <button
+            className="header-action"
+            onClick={() => setShowDocModal(true)}
+          >
+            <Info size={14} />
+            Cara Pakai
+          </button>
+          {userProfile && (
             <button
-              onClick={() => setShowDocModal(true)}
-              style={{
-                display: "flex", alignItems: "center", gap: "6px",
-                padding: "6px 14px", borderRadius: "99px",
-                border: "1px solid rgba(226, 232, 240, 0.8)",
-                background: "rgba(255,255,255,0.7)",
-                cursor: "pointer", fontSize: "0.8125rem",
-                color: "#475569", fontWeight: 500,
-                backdropFilter: "blur(8px)"
-              }}
+              className="header-action"
+              onClick={() => setShowPersonaModal(true)}
             >
-              <Info size={14} />
-              <span className="hidden sm:inline">Cara Pakai</span>
+              <Settings2 size={14} />
+              Ubah Profil
             </button>
-
-            {userProfile && (
-              <button
-                onClick={() => setShowPersonaModal(true)}
-                style={{
-                  display: "flex", alignItems: "center", gap: "6px",
-                  padding: "6px 14px", borderRadius: "99px",
-                  border: "1px solid rgba(226, 232, 240, 0.8)",
-                  background: "rgba(255,255,255,0.7)",
-                  cursor: "pointer", fontSize: "0.8125rem",
-                  color: "#475569", fontWeight: 500,
-                  backdropFilter: "blur(8px)"
-                }}
-              >
-                <Settings2 size={14} />
-                <span className="hidden sm:inline">Ubah Profil</span>
-              </button>
-            )}
-          </div>
+          )}
         </header>
 
         <main className="main-content">
@@ -527,11 +513,11 @@ export default function Home() {
                 >
                   <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.875rem", color: "var(--text-muted)", padding: "8px 12px", borderRadius: "12px", background: "rgba(255,255,255,0.5)", backdropFilter: "blur(8px)" }}>
                     <CloudSun size={16} style={{ color: "var(--text-light)" }} />
-                    <span>{result?.environmentalContext.weather.summary ?? "Berawan"}</span>
+                    <span>{result?.environmentalContext.weather.summary ?? "—"}</span>
                   </div>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.875rem", color: "var(--text-muted)", padding: "8px 12px", borderRadius: "12px", background: "rgba(255,255,255,0.5)", backdropFilter: "blur(8px)" }}>
                     <Clock size={16} style={{ color: "var(--text-light)" }} />
-                    <span>Optimal: {result?.recommendation.bestWindow ?? "Kapan saja"}</span>
+                    <span>Optimal: {result?.recommendation.bestWindow ?? "—"}</span>
                   </div>
                   {result?.recommendation.confidence && (
                     <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.875rem", color: "var(--text-muted)", padding: "8px 12px", borderRadius: "12px", background: "rgba(255,255,255,0.5)", backdropFilter: "blur(8px)" }}>

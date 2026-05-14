@@ -36,7 +36,28 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <div className="mobile-block">
+          {/* SIGAP wordmark */}
+          <div className="mobile-block-brand">
+            <div className="mobile-block-brand-dot" />
+            SIGAP
+          </div>
+
+          {/* Main card */}
+          <div className="mobile-block-card">
+            <div className="mobile-block-icon">🖥️</div>
+            <h1 className="mobile-block-title">Mode Mobile Belum Tersedia</h1>
+            <p className="mobile-block-body">
+              SIGAP saat ini hanya tersedia di browser desktop. Mohon buka halaman ini melalui browser desktop, atau aktifkan Mode Desktop di browser mobile Anda.
+            </p>
+            <p className="mobile-block-tip">
+              Chrome/Safari → Menu → &quot;Request Desktop Site&quot;
+            </p>
+          </div>
+        </div>
+        {children}
+      </body>
     </html>
   );
 }

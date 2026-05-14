@@ -205,10 +205,18 @@ function buildPrompt(
     ? `\n\nPertanyaan spesifik dari pengguna:\n"${userQuestion}"\n\nJawab pertanyaan ini secara langsung dalam field "headline" dan "recommendation". Berikan jawaban yang kontekstual dan membantu keputusan mereka.`
     : "";
 
+  // Only mention transport mode when user is actively planning a trip.
+  // Without a trip context, leading with mainTransport causes Gemini to
+  // always frame the initial recommendation as "should I ride my vehicle",
+  // even when the user just wants a general environmental briefing.
   const personaBlock = userProfile
     ? `\n\nPROFIL PENGGUNA (PERSONA):
-Pengguna ini adalah seorang [${userProfile.occupation}] dengan rentang usia [${userProfile.ageGroup}]. Moda transportasi utama mereka adalah [${userProfile.mainTransport}]. Catatan kesehatan: [${userProfile.healthNotes || "Tidak ada"}].
-Instruksi Personalisasi: Sesuaikan rekomendasi Anda dengan gaya hidup, usia, dan kesehatan mereka. Contoh: Jika ada catatan kesehatan (misal asma), beri peringatan ketat saat AQI buruk. Perhatikan juga Indeks UV (uvIndex) untuk menyarankan pelindung matahari (sunscreen/jaket) jika beraktivitas outdoor siang hari saat UV tinggi (>5).`
+Pengguna ini adalah seorang [${userProfile.occupation}] dengan rentang usia [${userProfile.ageGroup}]. Catatan kesehatan: [${userProfile.healthNotes || "Tidak ada"}].
+Instruksi Personalisasi: Sesuaikan rekomendasi dengan gaya hidup dan usia mereka.${
+  !tripContext
+    ? ` Karena tidak ada rencana perjalanan spesifik, fokus pada kondisi lingkungan secara umum — apakah aman untuk beraktivitas outdoor, risiko cuaca, atau waktu terbaik keluar rumah. JANGAN asumsikan pengguna sedang berencana menggunakan kendaraan tertentu.`
+    : ` Moda transportasi utama mereka adalah [${userProfile.mainTransport}] — pertimbangkan ini dalam evaluasi rute.`
+} Perhatikan juga Indeks UV (uvIndex) untuk menyarankan pelindung matahari jika UV tinggi (>5).`
     : "";
 
   // When destination is provided, inject explicit trip planning context.

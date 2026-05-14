@@ -32,15 +32,15 @@ SIGAP is not a weather dashboard or a generic chatbot. It uses Gemini as a **con
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 15 + TypeScript |
-| AI | Gemini 2.5 Flash (Google AI Studio) |
-| Maps | Google Maps Platform — Maps JS, Places, Routes API |
-| Environmental | Google Air Quality API, BMKG public weather API |
-| Flood | PetaBencana public reports API |
-| Weather (backup) | Visual Crossing Weather API |
-| Deployment | Docker → Google Cloud Run (asia-southeast2) |
+| Layer            | Technology                                         |
+| ---------------- | -------------------------------------------------- |
+| Framework        | Next.js 15 + TypeScript                            |
+| AI               | Gemini 3.1 Flash Lite (Google AI Studio)           |
+| Maps             | Google Maps Platform — Maps JS, Places, Routes API |
+| Environmental    | Google Air Quality API, BMKG public weather API    |
+| Flood            | PetaBencana public reports API                     |
+| Weather (backup) | Visual Crossing Weather API                        |
+| Deployment       | Docker → Google Cloud Run (asia-southeast2)        |
 
 ---
 

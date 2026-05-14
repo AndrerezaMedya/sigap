@@ -167,7 +167,7 @@ const DOC_CONTENT: Record<string, DocContent> = {
     body: (
       <>
         <p>
-          SIGAP bantu kamu jawab satu pertanyaan: aman nggak kalau aku keluar sekarang?
+          SIGAP ( <em>Smart Intelligent Guide for Activity Planning</em> ) bantu kamu jawab satu pertanyaan: aman nggak kalau aku keluar sekarang?
           Bukan dashboard cuaca. Bukan peta penuh pin. Keputusan dulu, data pendukung menyusul.
         </p>
         <DocCallout title="Decision-first">
@@ -936,9 +936,8 @@ export default function DocModal({ onClose }: DocModalProps) {
                     <div className="doc-sidebar-subgroup">
                       {section.children.map((child) => (
                         <button
-                          className={`doc-sidebar-sub ${
-                            activeTab === child.id ? "active" : ""
-                          }`}
+                          className={`doc-sidebar-sub ${activeTab === child.id ? "active" : ""
+                            }`}
                           key={child.id}
                           onClick={() => setActiveTab(child.id)}
                           type="button"

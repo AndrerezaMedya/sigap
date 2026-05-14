@@ -99,7 +99,7 @@ export async function getTrafficConditions(
 
   console.log(`🚦 Traffic: Requesting route for ${areaLabel} -> ${destination} (${mode})`);
 
-  const apiKey = process.env.NEXT_PUBLIC_GCP_API_KEY || process.env.GCP_API_KEY;
+  const apiKey = process.env.GCP_API_KEY;
   if (!apiKey) {
     console.warn("🚦 Traffic: No GCP_API_KEY found in environment!");
     return {
@@ -125,7 +125,6 @@ export async function getTrafficConditions(
         "X-Goog-Api-Key": apiKey,
         // Request polyline + traffic interval data for frontend rendering
         "X-Goog-FieldMask": "routes.duration,routes.distanceMeters,routes.staticDuration,routes.polyline.encodedPolyline,routes.travelAdvisory.speedReadingIntervals",
-        "Referer": "http://localhost:3000/",
       },
       body: JSON.stringify({
         origin: {
@@ -138,7 +137,7 @@ export async function getTrafficConditions(
           address: destination,
         },
         ...routingOptions,
-        extraComputations: ["TRAFFIC_ON_POLYLINE"],
+        ...(mode === "car" || mode === "motorcycle" ? { extraComputations: ["TRAFFIC_ON_POLYLINE"] } : {}),
         computeAlternativeRoutes: false,
         languageCode: "id-ID",
       }),

@@ -83,12 +83,13 @@ function formatSnapshotTime(plannedTime?: string): string {
   return date.toLocaleTimeString("id-ID", {
     hour: "2-digit",
     minute: "2-digit",
+    timeZone: "Asia/Jakarta",
   });
 }
 
 interface ActivityComparisonChartProps {
   items: ActivityComparisonItem[];
-  currentActivity: ActivityType;
+  currentActivity: ActivityType | null;
   plannedTime?: string;
 }
 

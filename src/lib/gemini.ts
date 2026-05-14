@@ -220,7 +220,7 @@ Pengguna sedang merencanakan perjalanan dengan detail berikut:
 - Titik Berangkat  : ${tripContext.origin}
 - Tujuan           : ${tripContext.destination}
 - Moda Transportasi: ${TRANSPORT_LABEL[tripContext.transportMode] ?? tripContext.transportMode}
-- Waktu Berangkat  : ${new Date(tripContext.plannedTime).toLocaleString("id-ID", { dateStyle: "short", timeStyle: "short" })}
+- Waktu Berangkat  : ${new Date(tripContext.plannedTime).toLocaleString("id-ID", { dateStyle: "short", timeStyle: "short", timeZone: "Asia/Jakarta" })}
 
 Fokus UTAMA: Evaluasi apakah rute ini aman dan optimal pada waktu tersebut berdasarkan kondisi lalu lintas, cuaca, dan lingkungan. Headline dan rekomendasi HARUS spesifik tentang perjalanan ini (sebutkan asal, tujuan, atau moda). Jangan memberikan rekomendasi generik tentang cuaca saja.`
     : "";

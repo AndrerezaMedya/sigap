@@ -49,7 +49,7 @@ export async function getAirQuality(
     return fallback;
   }
 
-  const apiKey = process.env.NEXT_PUBLIC_GCP_API_KEY || process.env.GCP_API_KEY;
+  const apiKey = process.env.GCP_API_KEY;
   if (!apiKey) {
     return {
       ...fallback,
@@ -70,7 +70,6 @@ export async function getAirQuality(
       method: "POST",
       headers: { 
         "Content-Type": "application/json",
-        "Referer": "http://localhost:3000/"
       },
       body: JSON.stringify({
         location: { latitude: lat, longitude: lng },

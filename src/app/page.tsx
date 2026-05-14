@@ -633,7 +633,7 @@ export default function Home() {
                 {result.recommendation.activityComparison && result.recommendation.activityComparison.length > 0 && (
                   <ActivityComparisonChart
                     items={result.recommendation.activityComparison}
-                    currentActivity={activity}
+                    currentActivity={activeTab === "plan" ? activity : null}
                     plannedTime={result.userContext.plannedTime}
                   />
                 )}

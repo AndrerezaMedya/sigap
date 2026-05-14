@@ -172,6 +172,7 @@ export function createFallbackRecommendation(
       time: new Date(item.localDatetime).toLocaleTimeString("id-ID", {
         hour: "2-digit",
         minute: "2-digit",
+        timeZone: "Asia/Jakarta",
       }),
       label: item.weatherDescription,
       detail: `${item.temperatureCelsius ?? "-"}°C, kelembapan ${

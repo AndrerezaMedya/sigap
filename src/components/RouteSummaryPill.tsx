@@ -100,20 +100,26 @@ export default function RouteSummaryPill({ trafficData, hasDestination }: RouteS
 
       {/* Tier 3 — Congestion confidence band (only when intervals exist) */}
       {hasIntervals && congestionPercent !== null && congestionPercent !== undefined && (
-        <div className="route-pill-row-3" aria-label={`${congestionPercent}% rute padat, level ${CONGESTION_LABEL[congestionLevel]}`}>
-          <div className="route-pill-bar-track">
-            <motion.div
-              className="route-pill-bar-fill"
-              initial={reducedMotion ? false : { width: 0 }}
-              animate={{ width: `${Math.min(100, Math.max(0, congestionPercent))}%` }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              style={{ background: tint }}
-            />
-          </div>
-          <span className="route-pill-bar-caption">
-            {congestionPercent}% rute {CONGESTION_LABEL[congestionLevel].toLowerCase()}
-          </span>
-        </div>
+        (() => {
+          const isLancar = congestionLevel === "low";
+          const displayPercent = isLancar ? Math.max(0, 100 - congestionPercent) : congestionPercent;
+          return (
+            <div className="route-pill-row-3" aria-label={`${displayPercent}% rute ${CONGESTION_LABEL[congestionLevel].toLowerCase()}`}>
+              <div className="route-pill-bar-track">
+                <motion.div
+                  className="route-pill-bar-fill"
+                  initial={reducedMotion ? false : { width: 0 }}
+                  animate={{ width: `${Math.min(100, Math.max(0, displayPercent))}%` }}
+                  transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                  style={{ background: tint }}
+                />
+              </div>
+              <span className="route-pill-bar-caption">
+                {displayPercent}% rute {CONGESTION_LABEL[congestionLevel].toLowerCase()}
+              </span>
+            </div>
+          );
+        })()
       )}
     </PillShell>
   );

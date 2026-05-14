@@ -125,7 +125,7 @@ function RouteLayer({
     // route under the pill and the origin marker gets occluded.
     map.fitBounds(
       { south: minLat, west: minLng, north: maxLat, east: maxLng },
-      { top: 100, right: 110, bottom: 90, left: 240 },
+      { top: 90, right: 40, bottom: 60, left: 60 },
     );
 
     // ── Place markers at route endpoints ─────────────────────────────────────
@@ -268,21 +268,23 @@ function MapLegend({
 
   return (
     <div className="map-legend" role="complementary" aria-label="Legenda lalu lintas dan sumber data">
-      <div className="map-legend-row">
-        {[
-          { color: SPEED_COLOR.NORMAL, label: "Lancar" },
-          { color: SPEED_COLOR.SLOW, label: "Padat" },
-          { color: SPEED_COLOR.TRAFFIC_JAM, label: "Macet" },
-        ].map(({ color, label }) => (
-          <span key={label} className="map-legend-key">
-            <span
-              className="map-legend-key-bar"
-              style={{ backgroundColor: color, boxShadow: `0 0 6px ${color}40` }}
-            />
-            {label}
-          </span>
-        ))}
-      </div>
+      {hasTrafficData && (
+        <div className="map-legend-row">
+          {[
+            { color: SPEED_COLOR.NORMAL, label: "Lancar" },
+            { color: SPEED_COLOR.SLOW, label: "Padat" },
+            { color: SPEED_COLOR.TRAFFIC_JAM, label: "Macet" },
+          ].map(({ color, label }) => (
+            <span key={label} className="map-legend-key">
+              <span
+                className="map-legend-key-bar"
+                style={{ backgroundColor: color, boxShadow: `0 0 6px ${color}40` }}
+              />
+              {label}
+            </span>
+          ))}
+        </div>
+      )}
       <div className="map-legend-attribution">
         <span className={`map-legend-pulse ${freshness}`} aria-hidden />
         <span>Google Routes &middot; {updatedLabel}</span>

@@ -563,6 +563,7 @@ export default function Home() {
               isLoading={isLoading}
               onSubmit={handleSubmit}
               onTabChange={setActiveTab}
+              geoDetected={geoDetected}
             />
           </motion.div>
 

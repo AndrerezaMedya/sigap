@@ -186,7 +186,7 @@ export default function GroundTruthSheet({
           attribution: emptyAttribution,
           metrics: [
             { value: "-", label: "Laporan" },
-            { value: "5 km", label: "Radius" },
+            { value: "15 km", label: "Radius" },
             { value: "-", label: "Status" },
           ],
         },
@@ -240,7 +240,7 @@ export default function GroundTruthSheet({
         attribution: buildAttribution("PetaBencana", context.flood.sourceMeta),
         metrics: [
           { value: formatReportCount(context.flood.recentReportCount), label: "Laporan" },
-          { value: "5 km", label: "Radius" },
+          { value: "15 km", label: "Radius" },
           { value: floodStatusShort(context.flood), label: "Status" },
         ],
       },

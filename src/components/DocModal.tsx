@@ -551,7 +551,7 @@ const DOC_CONTENT: Record<string, DocContent> = {
           Sumber data banjir dan genangan. Lebih akurat kalau koordinat lokasi tersedia.
         </p>
         <DocCodeBlock>
-          GET https://data.petabencana.id/reports?lat=...&lng=...&distance=5000&disaster=flood
+          GET https://api.petabencana.id/reports?admin=ID-JB&disaster=flood&timeperiod=21600&geoformat=geojson
         </DocCodeBlock>
         <DefinitionList
           items={[

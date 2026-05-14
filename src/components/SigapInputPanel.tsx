@@ -53,6 +53,8 @@ interface SigapInputPanelProps {
   isLoading: boolean;
   onSubmit: (e?: React.FormEvent) => void;
   onTabChange?: (tab: "ask" | "plan") => void;
+  /** True once geolocation has resolved (GPS success, denied, or unavailable) */
+  geoDetected?: boolean;
 }
 
 const QUICK_PROMPTS = [
@@ -69,7 +71,7 @@ export default function SigapInputPanel({
   destination, setDestination,
   transportMode, setTransportMode,
   plannedTime, setPlannedTime,
-  isLoading, onSubmit, onTabChange,
+  isLoading, onSubmit, onTabChange, geoDetected,
 }: SigapInputPanelProps) {
   const [activeTab, setActiveTab] = useState<"ask" | "plan">("ask");
 
@@ -233,7 +235,7 @@ export default function SigapInputPanel({
                       <MapPin size={14} />
                     </div>
                     <PlaceAutocomplete
-                      key={locationName || "detecting"}
+                      key={geoDetected ? "geo-resolved" : "geo-pending"}
                       value={locationName}
                       onChange={(val, newLat, newLng) => {
                         setLocationName(val);

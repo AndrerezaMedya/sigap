@@ -22,7 +22,7 @@ export async function buildEnvironmentalContext(
       userContext.lat,
       userContext.lng,
       userContext.destination,
-      userContext.transportMode,
+      userContext.transportMode ?? "car",
       areaLabel,
     ),
     getStormglassWind(userContext.lat, userContext.lng, areaLabel),

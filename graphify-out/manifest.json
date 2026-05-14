@@ -11,21 +11,17 @@
     "mtime": 1778571867.1699686,
     "hash": "24b5dd234ad38eb42778bed0765a8aec"
   },
-  "D:\\web\\JuaraVibeCoding\\test-api.ts": {
-    "mtime": 1778572059.2895868,
-    "hash": "c2b96f651195196b09aa36014206fb5d"
-  },
   "D:\\web\\JuaraVibeCoding\\src\\app\\layout.tsx": {
     "mtime": 1778743133.8202236,
     "hash": "e8b5554a567d5c6a8c5ae081f6c13d92"
   },
   "D:\\web\\JuaraVibeCoding\\src\\app\\page.tsx": {
-    "mtime": 1778749407.0316968,
-    "hash": "bd96cfbb0a0349691e9146e6ca03ce42"
+    "mtime": 1778770325.8098032,
+    "hash": "bcd985c87a81280d903fc226bbf86afa"
   },
   "D:\\web\\JuaraVibeCoding\\src\\app\\api\\recommendation\\route.ts": {
-    "mtime": 1778589320.8031108,
-    "hash": "7056f9df566ed07afc091808704c7002"
+    "mtime": 1778770377.8110473,
+    "hash": "5d99ded31b3c9d4f08d45584339c1458"
   },
   "D:\\web\\JuaraVibeCoding\\src\\components\\ActivityComparisonChart.tsx": {
     "mtime": 1778715300.0087698,
@@ -40,8 +36,8 @@
     "hash": "e5fcd6e15cf2e51e6169c15878383dfc"
   },
   "D:\\web\\JuaraVibeCoding\\src\\components\\DocModal.tsx": {
-    "mtime": 1778744496.5081043,
-    "hash": "959efe6ca983690a9eb0055b1fd925b7"
+    "mtime": 1778751070.909575,
+    "hash": "a1bdffd383536ac895862fc5b5dcdeb0"
   },
   "D:\\web\\JuaraVibeCoding\\src\\components\\GroundTruthSheet.tsx": {
     "mtime": 1778749479.0656967,
@@ -84,8 +80,8 @@
     "hash": "3740ed8b351f8bdfb1133a8026ae19d9"
   },
   "D:\\web\\JuaraVibeCoding\\src\\lib\\context.ts": {
-    "mtime": 1778581599.633351,
-    "hash": "43406711bf824e7d9192f9df85d4296f"
+    "mtime": 1778770443.8196528,
+    "hash": "edb1bda3213c4ad9a35138768b955fdc"
   },
   "D:\\web\\JuaraVibeCoding\\src\\lib\\fallback.ts": {
     "mtime": 1778713984.8866413,
@@ -96,8 +92,8 @@
     "hash": "062e8aa6ff0d299729b9dee2726ff07f"
   },
   "D:\\web\\JuaraVibeCoding\\src\\lib\\gemini.ts": {
-    "mtime": 1778740675.7019918,
-    "hash": "2ab582843c513a8409a8554cc80bbec5"
+    "mtime": 1778771208.389447,
+    "hash": "1d31f9c3147f027e9b10224ef278c3f0"
   },
   "D:\\web\\JuaraVibeCoding\\src\\lib\\options.ts": {
     "mtime": 1778742650.401289,
@@ -112,8 +108,8 @@
     "hash": "12c7618c208f580c4f662f420332f569"
   },
   "D:\\web\\JuaraVibeCoding\\src\\lib\\types.ts": {
-    "mtime": 1778593807.1009953,
-    "hash": "58058aa273a7f639ecdf288be83a54d4"
+    "mtime": 1778770165.8604443,
+    "hash": "026f14629ba765e07cefdc3e7b8c0b7a"
   },
   "D:\\web\\JuaraVibeCoding\\src\\lib\\visualcrossing.ts": {
     "mtime": 1778573739.8010874,
@@ -131,72 +127,72 @@
     "mtime": 1778658229.101776,
     "hash": "4ba090dba90a616baabbd3ffe1fc54bc"
   },
-  "D:\\web\\JuaraVibeCoding\\api_security_audit.md": {
-    "mtime": 1778716950.831819,
-    "hash": "83bc4a3bec01a968a42ac9df6f414067"
-  },
   "D:\\web\\JuaraVibeCoding\\cloudbuild.yaml": {
     "mtime": 1778683961.5266032,
     "hash": "8f64c8684264a37b13e4f3fc7909d884"
   },
-  "D:\\web\\JuaraVibeCoding\\current_sip_styles.txt": {
-    "mtime": 1778630947.771595,
-    "hash": "cad72df8ff65b417648d1130bcd5fad1"
-  },
-  "D:\\web\\JuaraVibeCoding\\DESIGN_IMPROVEMENTS.md": {
-    "mtime": 1778654779.6450977,
-    "hash": "c137b82f40657492ef3fff329bb6e4f3"
-  },
-  "D:\\web\\JuaraVibeCoding\\DESIGN_IMPROVEMENTS_V2.md": {
-    "mtime": 1778658642.772988,
-    "hash": "70b0e163eeb45fefbe42f93eee70ebc1"
-  },
-  "D:\\web\\JuaraVibeCoding\\DocModal.md": {
-    "mtime": 1778636348.5108182,
-    "hash": "afbc40711b1033e68c564eba139e0e8c"
-  },
-  "D:\\web\\JuaraVibeCoding\\docmodal_implementationplan.md": {
-    "mtime": 1778560489.7587152,
-    "hash": "3ae4e3c402e2545430b28564b1d7e4b4"
-  },
-  "D:\\web\\JuaraVibeCoding\\IMPLEMENTATION_NOTES.md": {
-    "mtime": 1778567702.96332,
-    "hash": "756d95cb3dc763366cabe0965abf09eb"
-  },
-  "D:\\web\\JuaraVibeCoding\\konteks.md": {
-    "mtime": 1778635011.1622968,
-    "hash": "341295261f46494c19e662a811ca7560"
-  },
   "D:\\web\\JuaraVibeCoding\\README.md": {
-    "mtime": 1778571867.143995,
-    "hash": "66d7965d538286f6fc5ad40649066d8e"
+    "mtime": 1778751494.5573375,
+    "hash": "6b62eb7dea594632a7eb4290e2fd00dd"
   },
-  "D:\\web\\JuaraVibeCoding\\SKILL_HUMANIZER.md": {
-    "mtime": 1778673241.6118028,
-    "hash": "e9be6d4b0dfb0aad5227b6a4d00f546b"
-  },
-  "D:\\web\\JuaraVibeCoding\\design-system\\sigap\\MASTER.md": {
-    "mtime": 1778628731.392638,
-    "hash": "0e9a75abd0260907892386f6d1126b79"
-  },
-  "D:\\web\\JuaraVibeCoding\\design-system\\sigap\\pages\\SKILLS.md": {
-    "mtime": 1778629495.373521,
-    "hash": "4132a7127083c15fe18c163a276f2ee5"
-  },
-  "D:\\web\\JuaraVibeCoding\\Dokumen Blueprint\\API_example.md": {
+  "D:\\web\\JuaraVibeCoding\\_docs\\architecture\\API_example.md": {
     "mtime": 1778492642.3683977,
     "hash": "7e58a31b1c43d2d2ec12d5ce6ab7b997"
   },
-  "D:\\web\\JuaraVibeCoding\\Dokumen Blueprint\\sigap_full_technical_architecture_document.md": {
+  "D:\\web\\JuaraVibeCoding\\_docs\\architecture\\api_security_audit.md": {
+    "mtime": 1778716950.831819,
+    "hash": "83bc4a3bec01a968a42ac9df6f414067"
+  },
+  "D:\\web\\JuaraVibeCoding\\_docs\\architecture\\IMPLEMENTATION_NOTES.md": {
+    "mtime": 1778567702.96332,
+    "hash": "756d95cb3dc763366cabe0965abf09eb"
+  },
+  "D:\\web\\JuaraVibeCoding\\_docs\\architecture\\konteks.md": {
+    "mtime": 1778635011.1622968,
+    "hash": "341295261f46494c19e662a811ca7560"
+  },
+  "D:\\web\\JuaraVibeCoding\\_docs\\architecture\\sigap_full_technical_architecture_document.md": {
     "mtime": 1778571867.1699686,
     "hash": "8e410bc59a8dcd961bcd08d14a24cbfd"
   },
-  "D:\\web\\JuaraVibeCoding\\Dokumen Blueprint\\sigap_project_overview_official.md": {
-    "mtime": 1778571867.1699686,
-    "hash": "9bdc7f3e036576992ff22069a709e750"
+  "D:\\web\\JuaraVibeCoding\\_docs\\design\\current_sip_styles.txt": {
+    "mtime": 1778630947.771595,
+    "hash": "cad72df8ff65b417648d1130bcd5fad1"
   },
-  "D:\\web\\JuaraVibeCoding\\Dokumen Blueprint\\sigap_uiux_design_system_document.md": {
+  "D:\\web\\JuaraVibeCoding\\_docs\\design\\DESIGN_IMPROVEMENTS.md": {
+    "mtime": 1778654779.6450977,
+    "hash": "c137b82f40657492ef3fff329bb6e4f3"
+  },
+  "D:\\web\\JuaraVibeCoding\\_docs\\design\\DESIGN_IMPROVEMENTS_V2.md": {
+    "mtime": 1778658642.772988,
+    "hash": "70b0e163eeb45fefbe42f93eee70ebc1"
+  },
+  "D:\\web\\JuaraVibeCoding\\_docs\\design\\sigap_uiux_design_system_document.md": {
     "mtime": 1778491581.0353937,
     "hash": "126b76d7a93a7850f18fdc7c288b544f"
+  },
+  "D:\\web\\JuaraVibeCoding\\_docs\\design\\design-system\\sigap\\MASTER.md": {
+    "mtime": 1778628731.392638,
+    "hash": "0e9a75abd0260907892386f6d1126b79"
+  },
+  "D:\\web\\JuaraVibeCoding\\_docs\\design\\design-system\\sigap\\pages\\SKILLS.md": {
+    "mtime": 1778629495.373521,
+    "hash": "4132a7127083c15fe18c163a276f2ee5"
+  },
+  "D:\\web\\JuaraVibeCoding\\_docs\\planning\\DocModal.md": {
+    "mtime": 1778636348.5108182,
+    "hash": "afbc40711b1033e68c564eba139e0e8c"
+  },
+  "D:\\web\\JuaraVibeCoding\\_docs\\planning\\docmodal_implementationplan.md": {
+    "mtime": 1778560489.7587152,
+    "hash": "3ae4e3c402e2545430b28564b1d7e4b4"
+  },
+  "D:\\web\\JuaraVibeCoding\\_docs\\planning\\SKILL_HUMANIZER.md": {
+    "mtime": 1778673241.6118028,
+    "hash": "e9be6d4b0dfb0aad5227b6a4d00f546b"
+  },
+  "D:\\web\\JuaraVibeCoding\\_docs\\reports\\sigap_project_overview_official.md": {
+    "mtime": 1778571867.1699686,
+    "hash": "9bdc7f3e036576992ff22069a709e750"
   }
 }

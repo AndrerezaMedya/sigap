@@ -60,10 +60,10 @@ function normalizeUserContext(value: unknown): UserContext {
       typeof raw.destination === "string" && raw.destination.trim() !== ""
         ? raw.destination.trim()
         : undefined,
-    activity: isActivity(raw.activity) ? raw.activity : "commute",
+    activity: isActivity(raw.activity) ? raw.activity : undefined,
     transportMode: isTransportMode(raw.transportMode)
       ? raw.transportMode
-      : "motorcycle",
+      : undefined,
     plannedTime:
       typeof raw.plannedTime === "string" && raw.plannedTime.trim() !== ""
         ? raw.plannedTime.trim()
@@ -85,16 +85,17 @@ export async function POST(request: Request) {
     const userContext = normalizeUserContext(body.userContext);
     const environmentalContext = await buildEnvironmentalContext(userContext);
 
-    // Build explicit trip context when destination is provided
+    // Build explicit trip context when destination AND transport mode are provided
     // This tells Gemini exactly where the user is going, not just traffic numbers
-    const tripContext: TripContext | undefined = userContext.destination
-      ? {
-          origin: userContext.locationName,
-          destination: userContext.destination,
-          transportMode: userContext.transportMode,
-          plannedTime: userContext.plannedTime,
-        }
-      : undefined;
+    const tripContext: TripContext | undefined =
+      userContext.destination && userContext.transportMode
+        ? {
+            origin: userContext.locationName,
+            destination: userContext.destination,
+            transportMode: userContext.transportMode,
+            plannedTime: userContext.plannedTime,
+          }
+        : undefined;
 
     const recommendation = await generateGeminiRecommendation(
       environmentalContext,

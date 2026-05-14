@@ -424,7 +424,7 @@ export default function Home() {
               />
 
               <div style={{ position: "relative", zIndex: 2 }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "24px" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "10px", marginBottom: "24px" }}>
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -511,16 +511,16 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: 0.3 }}
                   style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "12px", paddingTop: "24px", borderTop: "1px solid var(--border-light)" }}
                 >
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.875rem", color: "var(--text-muted)", padding: "8px 12px", borderRadius: "12px", background: "rgba(255,255,255,0.5)", backdropFilter: "blur(8px)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.875rem", color: "var(--text-muted)", padding: "8px 12px", borderRadius: "12px", background: "rgba(255,255,255,0.72)", backdropFilter: "blur(8px)", fontWeight: 500 }}>
                     <CloudSun size={16} style={{ color: "var(--text-light)" }} />
                     <span>{result?.environmentalContext.weather.summary ?? "—"}</span>
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.875rem", color: "var(--text-muted)", padding: "8px 12px", borderRadius: "12px", background: "rgba(255,255,255,0.5)", backdropFilter: "blur(8px)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.875rem", color: "var(--text-muted)", padding: "8px 12px", borderRadius: "12px", background: "rgba(255,255,255,0.72)", backdropFilter: "blur(8px)", fontWeight: 500 }}>
                     <Clock size={16} style={{ color: "var(--text-light)" }} />
                     <span>Optimal: {result?.recommendation.bestWindow ?? "—"}</span>
                   </div>
                   {result?.recommendation.confidence && (
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.875rem", color: "var(--text-muted)", padding: "8px 12px", borderRadius: "12px", background: "rgba(255,255,255,0.5)", backdropFilter: "blur(8px)" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.875rem", color: "var(--text-muted)", padding: "8px 12px", borderRadius: "12px", background: "rgba(255,255,255,0.72)", backdropFilter: "blur(8px)", fontWeight: 500 }}>
                       <Info size={16} style={{ color: "var(--text-light)" }} />
                       <span>
                         Keyakinan AI: <strong style={{ fontVariantNumeric: "tabular-nums", fontWeight: 600, color: "var(--text-main)" }}>{Math.round(animatedConfidence)}%</strong>

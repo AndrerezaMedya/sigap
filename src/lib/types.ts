@@ -34,8 +34,8 @@ export type UserContext = {
   lng?: number;
   adm4Code?: string;
   destination?: string;
-  activity: ActivityType;
-  transportMode: TransportMode;
+  activity?: ActivityType;
+  transportMode?: TransportMode;
   plannedTime: string;
   userQuestion?: string;
   profile?: UserProfile;
@@ -128,8 +128,8 @@ export type EnvironmentalContext = {
     recentReportCount: number | null;
     sourceMeta: SourceMeta;
   };
-  activityIntent: ActivityType;
-  transportMode: TransportMode;
+  activityIntent?: ActivityType;
+  transportMode?: TransportMode;
 };
 
 export type RecommendationTimelineItem = {

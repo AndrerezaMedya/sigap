@@ -214,9 +214,26 @@ function buildPrompt(
 Pengguna ini adalah seorang [${userProfile.occupation}] dengan rentang usia [${userProfile.ageGroup}]. Catatan kesehatan: [${userProfile.healthNotes || "Tidak ada"}].
 Instruksi Personalisasi: Sesuaikan rekomendasi dengan gaya hidup dan usia mereka.${
   !tripContext
-    ? ` Karena tidak ada rencana perjalanan spesifik, fokus pada kondisi lingkungan secara umum — apakah aman untuk beraktivitas outdoor, risiko cuaca, atau waktu terbaik keluar rumah. JANGAN asumsikan pengguna sedang berencana menggunakan kendaraan tertentu.`
+    ? ` Karena tidak ada rencana perjalanan spesifik, ini adalah cek kondisi lingkungan umum. Fokus pada: apakah aman untuk beraktivitas outdoor, risiko cuaca, kualitas udara, atau waktu terbaik keluar rumah. DILARANG KERAS menyebut moda transportasi spesifik (motor, mobil, sepeda, dll) dalam headline maupun rekomendasi.`
     : ` Moda transportasi utama mereka adalah [${userProfile.mainTransport}] — pertimbangkan ini dalam evaluasi rute.`
 } Perhatikan juga Indeks UV (uvIndex) untuk menyarankan pelindung matahari jika UV tinggi (>5).`
+    : "";
+
+  // When no activity/transport was explicitly chosen (first-load, general query),
+  // inject a strong directive to keep the recommendation general.
+  const isGeneralMode = !tripContext && !context.activityIntent && !context.transportMode;
+  const generalModeBlock = isGeneralMode
+    ? `\n\nMODE ANALISIS: UMUM (BUKAN RENCANA PERJALANAN)
+Pengguna BELUM memilih aktivitas atau moda transportasi. Ini adalah cek kondisi lingkungan umum.
+INSTRUKSI KETAT:
+- Ini BUKAN konteks perjalanan. Pengguna hanya ingin tahu kondisi lingkungan saat ini.
+- Headline dan rekomendasi WAJIB bersifat umum tentang kondisi lingkungan (cuaca, udara, risiko alam).
+- DILARANG KERAS menyebut kendaraan ("motor", "mobil", "berkendara") atau frasa perjalanan ("berangkat", "keberangkatan", "perjalanan", "rute").
+- Gunakan HANYA frasa seperti "beraktivitas di luar ruang", "keluar rumah", "aktivitas outdoor".
+- Contoh headline yang BENAR: "Kondisi aman untuk aktivitas luar ruang saat ini" atau "Waspadai hujan dalam 2 jam ke depan".
+- Contoh headline yang SALAH: "Percepat keberangkatan" atau "Segera berangkat sebelum hujan".
+- Jika ada hujan, fokus pada risiko hujan untuk orang yang berada di luar ruangan, BUKAN untuk berkendara.
+- Abaikan field activityIntent dan transportMode di konteks terstruktur jika bernilai null/undefined.`
     : "";
 
   // When destination is provided, inject explicit trip planning context.
@@ -235,7 +252,7 @@ Fokus UTAMA: Evaluasi apakah rute ini aman dan optimal pada waktu tersebut berda
 
   return `Anda adalah SIGAP, Smart Intelligent Guide for Activity Planning.
 
-Tugas Anda adalah mengubah konteks lingkungan menjadi rekomendasi keputusan yang ringkas, praktis, dan manusiawi. Jangan bertindak sebagai chatbot umum. Fokus pada keputusan: aman/tidak, kapan sebaiknya berangkat/beraktivitas, risiko utama, dan alasan.${personaBlock}${tripBlock}
+Tugas Anda adalah mengubah konteks lingkungan menjadi rekomendasi keputusan yang ringkas, praktis, dan manusiawi. Jangan bertindak sebagai chatbot umum. Fokus pada keputusan: aman/tidak untuk beraktivitas, kapan waktu terbaik, risiko utama, dan alasan.${personaBlock}${tripBlock}${generalModeBlock}
 
 Pengguna mungkin bertanya dengan bahasa sehari-hari (contoh: "ntar sore mau keluar jam 4, mending pake motor atau mobil?"). Pahami intent mereka dan berikan rekomendasi yang relevan.
 

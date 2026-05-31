@@ -6,7 +6,7 @@ import type { EnvironmentalContext, SourceMeta } from "@/lib/types";
 // Parameters: admin (ISO 3166-2 province code), disaster, timeperiod (seconds), geoformat
 // No lat/lng/distance params — radius filtering is done client-side via Haversine
 const PETA_BENCANA_API_URL = "https://api.petabencana.id/reports";
-const CACHE_TTL_MS = 1000 * 60 * 10; // 10 min
+const CACHE_TTL_MS = 1000 * 60 * 5; // 5 min (demo)
 const RADIUS_KM = 15;
 const TIME_PERIOD_SEC = 6 * 60 * 60; // 6 hours
 

@@ -2,7 +2,7 @@ import { globalCache } from "@/lib/cache";
 import type { EnvironmentalContext, SpeedReadingInterval, TrafficCongestionLevel, TransportMode } from "@/lib/types";
 
 const ROUTES_API_URL = "https://routes.googleapis.com/directions/v2:computeRoutes";
-const CACHE_TTL_MS = 1000 * 60 * 15; // 15 mins cache for Traffic
+const CACHE_TTL_MS = 1000 * 60 * 5; // 5 mins cache for Traffic (demo)
 
 type TrafficContext = EnvironmentalContext["traffic"];
 
@@ -157,10 +157,10 @@ export async function getTrafficConditions(
       return fallback;
     }
 
-    console.log("🚦 Traffic: Route found!", { 
-      distance: route.distanceMeters, 
+    console.log("🚦 Traffic: Route found!", {
+      distance: route.distanceMeters,
       duration: route.duration,
-      hasPolyline: !!route.polyline?.encodedPolyline 
+      hasPolyline: !!route.polyline?.encodedPolyline
     });
 
     const durationMin = parseDurationToMinutes(route.duration);
@@ -174,7 +174,7 @@ export async function getTrafficConditions(
       ? (route.distanceMeters / 1000).toFixed(1)
       : null;
     const trafficDelayMin = Math.max(0, durationMin - staticDurationMin);
-    
+
     let totalPoints = 0;
     let congestedPoints = 0;
 

@@ -2,7 +2,7 @@ import { globalCache } from "@/lib/cache";
 import type { EnvironmentalContext } from "@/lib/types";
 
 const STORMGLASS_API_URL = "https://api.stormglass.io/v2/weather/point";
-const CACHE_TTL_MS = 1000 * 60 * 20; // 20 mins cache for wind & visibility
+const CACHE_TTL_MS = 1000 * 60 * 5; // 5 mins cache for wind & visibility (demo)
 
 type WindContext = EnvironmentalContext["wind"];
 
@@ -119,9 +119,8 @@ export async function getStormglassWind(
 
     const result: WindContext = {
       source: "Stormglass",
-      summary: `Angin ${windSpeedMs ?? "-"} m/s dengan visibilitas ${
-        visibilityKm ?? "-"
-      } km.`,
+      summary: `Angin ${windSpeedMs ?? "-"} m/s dengan visibilitas ${visibilityKm ?? "-"
+        } km.`,
       windSpeedMs,
       visibilityKm,
       sourceMeta: {

@@ -2,7 +2,7 @@ import { createFallbackWeather } from "@/lib/fallback";
 import type { WeatherContext, WeatherPoint } from "@/lib/types";
 
 const BMKG_FORECAST_URL = "https://api.bmkg.go.id/publik/prakiraan-cuaca";
-const CACHE_TTL_MS = 1000 * 60 * 60;
+const CACHE_TTL_MS = 1000 * 60 * 5; // 5 mins cache for demo
 
 import { globalCache } from "@/lib/cache";
 
@@ -89,9 +89,8 @@ function normalizeBmkgResponse(
     locationLabel: buildLocationLabel(data, fallbackLabel),
     analysisDate: first?.localDatetime,
     summary: first
-      ? `${first.weatherDescription} dengan suhu ${
-          first.temperatureCelsius ?? "-"
-        }°C dan kelembapan ${first.humidityPercent ?? "-"}%.`
+      ? `${first.weatherDescription} dengan suhu ${first.temperatureCelsius ?? "-"
+      }°C dan kelembapan ${first.humidityPercent ?? "-"}%.`
       : "Data BMKG tersedia, tetapi prakiraan rinci belum ditemukan.",
     forecast,
     sourceMeta: {

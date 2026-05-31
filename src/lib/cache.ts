@@ -48,4 +48,4 @@ class LRUCache<T> {
 }
 
 // Global cache instance for generic API responses
-export const globalCache = new LRUCache<unknown>(100, 1000 * 60 * 60); // 1 hour default TTL
+export const globalCache = new LRUCache<unknown>(100, 1000 * 60 * 5); // 5 min default TTL (demo)

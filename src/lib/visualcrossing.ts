@@ -2,7 +2,7 @@ import { globalCache } from "@/lib/cache";
 import type { EnvironmentalContext } from "@/lib/types";
 
 const VC_API_URL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline";
-const CACHE_TTL_MS = 1000 * 60 * 30; // 30 mins cache for VisualCrossing
+const CACHE_TTL_MS = 1000 * 60 * 5; // 5 mins cache for VisualCrossing (demo)
 
 type MicroclimateContext = EnvironmentalContext["microclimate"];
 

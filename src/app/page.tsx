@@ -468,7 +468,7 @@ export default function Home() {
                   >
                     <div className={`status-badge ${risk.badgeClass}`} style={{ margin: 0 }}>
                       <RiskIcon size={14} />
-                      {result?.recommendation.statusLabel ?? risk.label}
+                      {result?.recommendation.statusLabel ?? (isLoading ? "Mohon Tunggu" : risk.label)}
                     </div>
                   </motion.div>
                 </div>

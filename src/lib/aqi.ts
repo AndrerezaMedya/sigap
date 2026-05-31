@@ -2,7 +2,7 @@ import { globalCache } from "@/lib/cache";
 import type { EnvironmentalContext } from "@/lib/types";
 
 const AQI_API_URL = "https://airquality.googleapis.com/v1/currentConditions:lookup";
-const CACHE_TTL_MS = 1000 * 60 * 30; // 30 mins cache for AQI
+const CACHE_TTL_MS = 1000 * 60 * 5; // 5 mins cache for AQI (demo)
 
 type AqiContext = EnvironmentalContext["aqi"];
 
@@ -68,7 +68,7 @@ export async function getAirQuality(
   try {
     const response = await fetch(`${AQI_API_URL}?key=${apiKey}`, {
       method: "POST",
-      headers: { 
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({

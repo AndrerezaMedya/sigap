@@ -245,11 +245,11 @@ export default function Home() {
       lat,
       lng,
       adm4Code,
-      destination: destination || undefined,
+      destination: activeTab === "plan" ? (destination || undefined) : undefined,
       activity,
-      transportMode,
+      transportMode: activeTab === "plan" ? transportMode : undefined,
       plannedTime: new Date(plannedTime).toISOString(),
-      userQuestion: userQuestion || undefined,
+      userQuestion: activeTab === "ask" ? (userQuestion || undefined) : undefined,
       profile: profileData,
     };
 
@@ -562,7 +562,10 @@ export default function Home() {
               setPlannedTime={setPlannedTime}
               isLoading={isLoading}
               onSubmit={handleSubmit}
-              onTabChange={setActiveTab}
+              onTabChange={(tab) => {
+                setActiveTab(tab);
+                if (tab === "plan") setUserQuestion("");
+              }}
               geoDetected={geoDetected}
             />
           </motion.div>
